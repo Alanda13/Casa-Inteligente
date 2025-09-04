@@ -1,134 +1,61 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Painel de Cenas</title>
-  <link rel="stylesheet" href="main.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Domótica - Painel de Controle</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-  <div class="main-wrapper">
-    <!-- MENU LATERAL -->
-    <div class="sidebar">
-      <div>
-        <h2>Catálogo</h2>
-        <ul>
-          <li>Sala de estar</li>
-          <li>Cozinha</li>
-          <li>Quarto</li>
-          <li>Escritório</li>
-          <li>Banheiro</li>
-          <li>Jardim</li>
-          <li>Garagem</li>
-          <li>Lavanderia</li>
-        </ul>
-      </div>
-      <div class="logout">Sair</div>
+
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="logo">
+                <i class="fas fa-home"></i>
+                <span>Dashboard</span>
+            </div>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="#" id="nav-dashboard" class="active"><i class="fas fa-chart-line"></i> Dashboard</a></li>
+                    <li><a href="#" id="nav-rooms"><i class="fas fa-couch"></i> Cômodos</a></li>
+                    <li><a href="#" id="nav-devices"><i class="fas fa-lightbulb"></i> Dispositivos</a></li>
+                    <li><a href="#" id="nav-scenes"><i class="fas fa-film"></i> Cenas</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="search-bar">
+                    <input type="text" placeholder="Pesquisar...">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="user-info">
+                    <span class="notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">2</span>
+                    </span>
+                    <i class="fas fa-user-circle user-avatar"></i>
+                </div>
+            </header>
+            
+            <div class="content-wrapper">
+                <div id="content-area">
+                    </div>
+            </div>
+        </main>
     </div>
 
-    <!-- ÁREA PRINCIPAL -->
-    <div class="main">
-      <!-- Topbar -->
-      <div class="topbar">
-        <div class="search">
-          <input type="text" placeholder="Buscar cena ou dispositivo...">
-        </div>
-        <div class="profile">
-           <img src="https://img.freepik.com/fotos-premium/retrato-de-uma-jovem-com-cabelos-castanhos-encaracolados-vestindo-uma-camisa-azul-sorrindo-brilhantemente-para-a-camera_1141761-17694.jpg?semt=ais_hybrid&w=740&q=80" alt="Foto de perfil">
-        </div>
-      </div>
+    <div id="notification-container"></div>
 
-      <!-- Botão Criar Cena -->
-      <button class="create-scene" id="openSceneModal">+ Criar Cena</button>
-
-      <!-- Cards de Cena -->
-      <div class="cards">
-        <div class="card">
-          <p>Cinema</p>
-          <div class="options">
-            <button class="options-btn">☰</button>
-            <div class="options-menu hidden">
-              <p class="edit">Editar Cena</p>
-              <p class="delete">Excluir Cena</p>
-              <p class="cancel">Cancelar</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <p>Dormir</p>
-          <div class="options">
-            <button class="options-btn">☰</button>
-            <div class="options-menu hidden">
-              <p class="edit">Editar Cena</p>
-              <p class="delete">Excluir Cena</p>
-              <p class="cancel">Cancelar</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <p>Trabalho</p>
-          <div class="options">
-            <button class="options-btn">☰</button>
-            <div class="options-menu hidden">
-              <p class="edit">Editar Cena</p>
-              <p class="delete">Excluir Cena</p>
-              <p class="cancel">Cancelar</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Área de dispositivos do cômodo selecionado -->
-      <div class="devices-container">
-        <h3>Dispositivos</h3>
-        <div class="devices-list">
-          <!-- Aqui serão renderizados os dispositivos dinamicamente -->
-        </div>
-      </div>
-    </div> <!-- FIM .main -->
-  </div> 
-
-  <!-- RODAPÉ FORA DA MAIN -->
-  <footer class="footer">
-    © 2025 Izadora Pamella, Alanda Amábilly e Rafael Silva. Todos os direitos reservados.
-  </footer>
-
-  <!-- MODAL PARA CRIAR/EDITAR CENA -->
-  <div class="modal hidden" id="sceneModal">
-    <div class="modal-content">
-      <h3>Criar Cena</h3>
-
-      <!-- Nome da Cena -->
-      <label for="sceneName">Nome da Cena:</label>
-      <input type="text" id="sceneName" placeholder="Digite o nome da cena">
-
-      <!-- Seleção de Cômodo -->
-      <label for="roomSelect">Escolha o Cômodo:</label>
-      <select id="roomSelect">
-        <option value="">-- Selecione um cômodo --</option>
-      </select>
-
-      <!-- Dispositivos do Cômodo -->
-      <div id="sceneActionsContainer">
-        <h4>Dispositivos disponíveis:</h4>
-        <div id="devicesList">
-        </div>
-      </div>
-
-      <!-- Botões do Modal -->
-      <div class="modal-buttons">
-        <button id="saveScene">Salvar</button>
-        <button id="cancelScene">Cancelar</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- TOAST DE NOTIFICAÇÃO -->
-  <div class="toast hidden" id="toast"></div>
-
-  <!-- Importa o JS -->
-  <script src="script.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/components/dashboard-component.js"></script>
+    <script src="js/components/rooms-component.js"></script>
+    <script src="js/components/devices-component.js"></script>
+    <script src="js/components/scenes-component.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
