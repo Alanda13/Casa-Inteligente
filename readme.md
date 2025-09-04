@@ -57,8 +57,7 @@ Antes da codificação, os seguintes artefatos foram elaborados:
 3. **Diagrama de Classes:** modelagem das entidades Dispositivo, Cômodo e Cena, com atributos e métodos.  
 4. **Diagrama Entidade-Relacionamento (DER):** modelagem das tabelas do banco de dados e suas relações.  
 5. **Documentação de API:** descrição de endpoints com métodos, URLs, parâmetros, corpo de requisição, respostas e status codes.  
-
-> **Espaço para adicionar a documentação completa do Google Docs:**  
+    
 > [Clique aqui para acessar a documentação](https://docs.google.com/document/d/1c0upFQi8ypnUcEGOuMw-LFuwzmbFnocf3uKl4xb4-eg/edit?tab=t.0)  
 
 ## 6. Estrutura de Entidades
